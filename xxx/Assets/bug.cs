@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class bug : MonoBehaviour {
 
-    private float maxY = 5;
+    private float maxY = 4;
 
-    private float maxX = 10;
+    private float maxX = 8;
 
     public float movementSpeed;
 
@@ -42,7 +42,11 @@ public class bug : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if (transform.position.x >= maxX || transform.position.x <= -maxX || transform.position.y >= maxY || transform.position.y <= -maxY)
+        {
+            transform.rotation *= Quaternion.Euler(0, 0, 180);
+            Debug.Log(123);
+        }
         transform.position += transform.right * Time.deltaTime * movementSpeed;
-        Debug.Log(transform.forward);
     }
 }
