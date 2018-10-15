@@ -8,11 +8,17 @@ public class bug : MonoBehaviour {
 
     private float maxX = 8;
 
+    private Vector3 offset;
+
+    public int health = 3;
+
     public float movementSpeed;
 
     private float Y;
 
     private float X;
+
+    public bool died = false;
 
     private IEnumerator coroutine;
 
@@ -42,11 +48,42 @@ public class bug : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (transform.position.x >= maxX || transform.position.x <= -maxX || transform.position.y >= maxY || transform.position.y <= -maxY)
+        if (health <= 0)
         {
-            transform.rotation *= Quaternion.Euler(0, 0, 180);
-            Debug.Log(123);
+            died = true;
+            StopCoroutine(coroutine);
         }
-        transform.position += transform.right * Time.deltaTime * movementSpeed;
+
+        else
+        {
+            if (transform.position.x >= maxX || transform.position.x <= -maxX || transform.position.y >= maxY || transform.position.y <= -maxY)
+            {
+                transform.rotation *= Quaternion.Euler(0, 0, 180);
+            }
+            transform.position += transform.up * Time.deltaTime * movementSpeed;
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (died)
+        {
+            offset = gameObject.transform.position -
+                        Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+        }
+    }
+
+    void OnMouseDrag()
+    {
+        if (died)
+        {
+            Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
+            transform.position = Camera.main.ScreenToWorldPoint(newPosition) + offset;
+        }
+    }
+
+    private void OnMouseUpAsButton()
+    {
+        health -= 1;
     }
 }
