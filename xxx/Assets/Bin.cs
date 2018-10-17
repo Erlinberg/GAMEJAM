@@ -19,6 +19,11 @@ public class Bin : MonoBehaviour {
                         KilledBug += 1;
                         Destroy(collision.gameObject);
                 }
+
+                else
+                {
+                    GetComponent<stress>().stressprc -= 0.1f;
+                }
             }
         }
     }
