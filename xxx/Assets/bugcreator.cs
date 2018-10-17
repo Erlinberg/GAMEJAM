@@ -12,7 +12,7 @@ public class bugcreator : MonoBehaviour {
 
     private void Start()
     {
-        int chance = Random.Range(1, 10);
+        int chance = Random.Range(3, 5);
 
         for (int i = 0; i < chance; i++)
         {
