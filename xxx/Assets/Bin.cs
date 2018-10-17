@@ -14,7 +14,6 @@ public class Bin : MonoBehaviour {
         {
             if (Input.GetMouseButtonUp(0))
             {
-                Debug.Log(collision.tag == type);
                 if (collision.tag == type)
                 {
                         KilledBug += 1;

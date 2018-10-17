@@ -10,7 +10,7 @@ public class bug : MonoBehaviour {
 
     private Vector3 offset;
 
-    public int health = 3;
+    public int health;
 
     public float movementSpeed;
 

@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212226452347738856}
   - component: {fileID: 114910681404569196}
   - component: {fileID: 95312883243964320}
-  - component: {fileID: 50193139932740650}
   - component: {fileID: 58972590269207766}
+  - component: {fileID: 50717080834046342}
   m_Layer: 0
   m_Name: Error
   m_TagString: Error
@@ -44,7 +44,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 149.53}
---- !u!50 &50193139932740650
+--- !u!50 &50717080834046342
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -59,7 +59,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ab9b4a33a7a3266458383b3f3ea2d460, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -72,7 +72,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1997986322750638}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: ab9b4a33a7a3266458383b3f3ea2d460, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   health: 3
   movementSpeed: 2
   died: 0
-  particle: {fileID: 0}
+  particle: {fileID: 1894991698077584, guid: cf93112cd31dcab48b756b45ae952b25, type: 2}
   anim: {fileID: 0}
 --- !u!212 &212226452347738856
 SpriteRenderer:

@@ -16,16 +16,42 @@ public class bugcreator : MonoBehaviour {
 
         for (int i = 0; i < chance; i++)
         {
-            Instantiate(BugPref[Random.Range(0, 3)]);
+            int what = Random.Range(0, 100);
+
+            if (what <= 60)
+            {
+                Instantiate(BugPref[0]);
+            }
+
+            else if (what > 60 & what < 90)
+            {
+                Instantiate(BugPref[1]);
+            }
         }
     }
 
     private void Update()
     {
+        int what = Random.Range(0, 100);
         TimeLeft -= Time.deltaTime;
         if (TimeLeft < 0)
         {
-            Instantiate(BugPref[Random.Range(0, 2)]);
+            what = Random.Range(0, 100);
+
+            if (what <= 60)
+            {
+                Instantiate(BugPref[0]);
+            }
+
+            else if (what > 60 & what < 90)
+            {
+                Instantiate(BugPref[1]);
+            }
+
+            else if (what >= 90)
+            {
+                Instantiate(BugPref[2]);
+            }
             TimeLeft = Random.Range(0, AllTime -= (Time.time / 5000000.0f));
         }
     }
