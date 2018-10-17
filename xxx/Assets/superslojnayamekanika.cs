@@ -14,9 +14,9 @@ public class superslojnayamekanika : MonoBehaviour {
 
     public float spawn = 1;
 
-    public float V_max = 10;
+    public float V_max = 5;
 
-    public float B_middle = 20;
+    public float B_middle = 25;
 
     public float AllTime = 120;
 
@@ -35,12 +35,12 @@ public class superslojnayamekanika : MonoBehaviour {
 
     void Spawn()
     {
-        spawn = 2 * stress - 1;
+        spawn = stress;
     }
 
     void Speed()
     {
-        speedOfDev = (((B_middle + (B_middle / V_max)) / (Bugs + (B_middle / V_max))) * (1 / stress));
+        speedOfDev = (((B_middle + (B_middle / V_max)) / (Bugs + (B_middle / V_max))) * (1 / stress)) / 2;
     }
 
     private void Start()

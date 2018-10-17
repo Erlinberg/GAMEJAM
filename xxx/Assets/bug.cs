@@ -93,6 +93,7 @@ public class bug : MonoBehaviour {
 
     private void OnMouseUpAsButton()
     {
+        Destroy(transform.gameObject);
         if (died == false)
         {
             health -= 1;

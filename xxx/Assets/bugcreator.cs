@@ -6,13 +6,13 @@ public class bugcreator : MonoBehaviour {
 
     public GameObject[] BugPref = new GameObject[3];
 
-    private float TimeLeft = 5;
+    private float TimeLeft = 3;
 
-    public float AllTime = 5;
+    public float AllTime = 3;
 
     private void Start()
     {
-        int chance = Random.Range(3, 5);
+        int chance = Random.Range(3, 10);
 
         for (int i = 0; i < chance; i++)
         {
@@ -52,7 +52,7 @@ public class bugcreator : MonoBehaviour {
             {
                 Instantiate(BugPref[2]);
             }
-            TimeLeft = Random.Range(0, AllTime -= (Time.time / 5000000.0f));
+            TimeLeft = AllTime / GetComponent<superslojnayamekanika>().spawn;
         }
     }
 }

@@ -347,7 +347,7 @@ MonoBehaviour:
   spawn: 0
   V_max: 10
   B_middle: 20
-  AllTime: 120
+  AllTime: 3
   Bugs: 0
 --- !u!1 &224655526
 GameObject:
