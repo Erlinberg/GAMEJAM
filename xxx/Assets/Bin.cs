@@ -6,14 +6,20 @@ public class Bin : MonoBehaviour {
 
     public int KilledBug = 0;
 
+    public string type;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "bug" & collision.GetComponent<bug>().died == true)
+        if (collision.GetComponent<bug>().died == true)
         {
             if (Input.GetMouseButtonUp(0))
             {
-                KilledBug += 1;
-                Destroy(collision.gameObject);
+                Debug.Log(collision.tag == type);
+                if (collision.tag == type)
+                {
+                        KilledBug += 1;
+                        Destroy(collision.gameObject);
+                }
             }
         }
     }

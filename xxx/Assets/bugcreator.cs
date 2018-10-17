@@ -16,7 +16,7 @@ public class bugcreator : MonoBehaviour {
 
         for (int i = 0; i < chance; i++)
         {
-            Instantiate(BugPref[Random.Range(0, 2)]);
+            Instantiate(BugPref[Random.Range(0, 3)]);
         }
     }
 

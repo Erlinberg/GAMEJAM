@@ -58,7 +58,7 @@ public class bug : MonoBehaviour {
             died = true;
             StopCoroutine(coroutine);
             anim.enabled = false;
-            Rigidbody2D rb = GetComponent<Rigidbody2D>(
+            GetComponent<CircleCollider2D>().isTrigger = true;
         }
 
         else
