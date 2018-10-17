@@ -22,6 +22,9 @@ public class bug : MonoBehaviour {
 
     private IEnumerator coroutine;
 
+    public GameObject particle;
+    public Animator anim;
+
     IEnumerator Rotate(float waitTime)
     {
         while (true)
@@ -35,14 +38,16 @@ public class bug : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+
         Y = Random.Range(-maxY, maxY);
         X = Random.Range(-maxX, maxX);
 
-        coroutine = Rotate(2.0f);
+        coroutine = Rotate(Random.Range(0.5f,3.0f));
 
         StartCoroutine(coroutine);
 
         transform.position = new Vector2(X, Y);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,24 +57,28 @@ public class bug : MonoBehaviour {
         {
             died = true;
             StopCoroutine(coroutine);
+            anim.enabled = false;
+            Rigidbody2D rb = GetComponent<Rigidbody2D>(
         }
 
         else
         {
-            if (transform.position.x >= maxX || transform.position.x <= -maxX || transform.position.y >= maxY || transform.position.y <= -maxY)
-            {
-                transform.rotation *= Quaternion.Euler(0, 0, 180);
-            }
+
             transform.position += transform.up * Time.deltaTime * movementSpeed;
+
         }
     }
 
     void OnMouseDown()
     {
+
+        
+        
         if (died)
         {
             offset = gameObject.transform.position -
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
+
         }
     }
 
@@ -84,6 +93,10 @@ public class bug : MonoBehaviour {
 
     private void OnMouseUpAsButton()
     {
-        health -= 1;
+        if (died == false)
+        {
+            health -= 1;
+            Instantiate(particle, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f), Quaternion.identity);
+        }
     }
 }
