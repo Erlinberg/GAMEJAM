@@ -10,8 +10,6 @@ public class Bin : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.GetComponent<bug>().died == true)
-        {
             if (Input.GetMouseButtonUp(0))
             {
                 if (collision.tag == type)
@@ -20,6 +18,5 @@ public class Bin : MonoBehaviour {
                         Destroy(collision.gameObject);
                 }
             }
-        }
     }
 }

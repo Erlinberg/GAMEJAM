@@ -6,9 +6,9 @@ public class bugcreator : MonoBehaviour {
 
     public GameObject[] BugPref = new GameObject[3];
 
-    private float TimeLeft = 3;
+    private float TimeLeft = 1;
 
-    public float AllTime = 3;
+    public float AllTime = 1;
 
     private void Start()
     {

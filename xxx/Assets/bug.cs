@@ -10,15 +10,11 @@ public class bug : MonoBehaviour {
 
     private Vector3 offset;
 
-    public int health;
-
     public float movementSpeed;
 
     private float Y;
 
     private float X;
-
-    public bool died = false;
 
     private IEnumerator coroutine;
 
@@ -53,51 +49,20 @@ public class bug : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (health <= 0)
-        {
-            died = true;
-            StopCoroutine(coroutine);
-            anim.enabled = false;
-            GetComponent<CircleCollider2D>().isTrigger = true;
-        }
-
-        else
-        {
 
             transform.position += transform.up * Time.deltaTime * movementSpeed;
-
-        }
     }
 
     void OnMouseDown()
     {
-
-        
-        
-        if (died)
-        {
             offset = gameObject.transform.position -
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
-
-        }
     }
 
     void OnMouseDrag()
     {
-        if (died)
-        {
             Vector3 newPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
             transform.position = Camera.main.ScreenToWorldPoint(newPosition) + offset;
-        }
-    }
 
-    private void OnMouseUpAsButton()
-    {
-        Destroy(transform.gameObject);
-        if (died == false)
-        {
-            health -= 1;
-            Instantiate(particle, new Vector3(transform.position.x, transform.position.y, transform.position.z - 1f), Quaternion.identity);
-        }
     }
 }
