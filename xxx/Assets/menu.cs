@@ -9,14 +9,4 @@ public class menu : MonoBehaviour {
     {
         SceneManager.LoadScene("SampleScene");
     }
-
-    public void HowToPlay()
-    {
-        //1
-    }
-
-    public void Credits()
-    {
-        //1
-    }
 }
